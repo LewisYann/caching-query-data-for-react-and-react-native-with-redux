@@ -3,7 +3,7 @@ import {
     fetchBaseQuery
 } from "@reduxjs/toolkit/query/react"; // don't forget the /react for autogenerations of hooks
 export const api = createApi({
-    reducerPath: "tasksApi",
+    reducerPath: "api",
     baseQuery: fetchBaseQuery({
         baseUrl: "http://localhost:5000/" // indicate the url base of your API
     }),
