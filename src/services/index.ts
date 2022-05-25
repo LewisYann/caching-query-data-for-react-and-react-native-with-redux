@@ -7,9 +7,13 @@ export const api = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "http://localhost:5000/" // indicate the url base of your API
     }),
+    tagTypes: ["Messages"],
     endpoints: (builder) => ({
         getMessage: builder.query<any[], void>({
             query: () => "/get/messages/",
-          })
+            providesTags: ["Messages"],
+        }),
+
+
     }) // we will complete this part later in the article.
 });
