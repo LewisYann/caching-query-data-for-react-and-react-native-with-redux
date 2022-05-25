@@ -7,5 +7,9 @@ export const api = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "http://localhost:5000/" // indicate the url base of your API
     }),
-    endpoints: (builder) => ({}) // we will complete this part later in the article.
+    endpoints: (builder) => ({
+        getMessage: builder.query<any[], void>({
+            query: () => "/get/messages/",
+          })
+    }) // we will complete this part later in the article.
 });
