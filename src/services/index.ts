@@ -17,3 +17,4 @@ export const api = createApi({
 
     }) // we will complete this part later in the article.
 });
+export const { useGetMessageQuery } = api
