@@ -19,14 +19,26 @@ export const api = createApi({
         }), // we will complete this part later in the article.
         sendMessage: builder.mutation({
             query: (data) => ({
-              url: "/send/message",
-              method: "POST",
-              data: data,
+                url: "/send/message",
+                method: "POST",
+                data: data,
             }),
-            invalidatesTags: ["Messages"],      
-          }),
+            invalidatesTags: ["Messages"],
+        }),
+        updateMessage: builder.mutation({
+            query: (data) => ({
+                url: "/update/message",
+                method: "POST",
+                data: data,
+            }),
+            invalidatesTags: ["Messages"],
+        }),
 
 
     }) // we will complete this part later in the article.
 });
-export const { useGetMessageQuery ,useGetMessageByIdQuery,useSendMessageMutation} = api
+export const { useGetMessageQuery,
+    useGetMessageByIdQuery,
+    useSendMessageMutation,
+    useUpdateMessageMutation
+} = api
