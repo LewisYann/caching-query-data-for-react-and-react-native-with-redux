@@ -16,7 +16,15 @@ export const api = createApi({
         getMessageById: builder.query<any[], void>({
             query: (id) => "/get/messages/" + id,
             providesTags: ["Messages"],
-        }) // we will complete this part later in the article.
+        }), // we will complete this part later in the article.
+        sendMessage: builder.mutation({
+            query: (data) => ({
+              url: "/send/message",
+              method: "POST",
+              data: data,
+            }),
+            invalidatesTags: ["Messages"],      
+          }),
 
 
     }) // we will complete this part later in the article.
