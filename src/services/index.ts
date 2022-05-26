@@ -13,8 +13,12 @@ export const api = createApi({
             query: () => "/get/messages/",
             providesTags: ["Messages"],
         }),
+        getMessageById: builder.query<any[], void>({
+            query: (id) => "/get/messages/" + id,
+            providesTags: ["Messages"],
+        }) // we will complete this part later in the article.
 
 
     }) // we will complete this part later in the article.
 });
-export const { useGetMessageQuery } = api
+export const { useGetMessageQuery ,useGetMessageByIdQuery} = api
