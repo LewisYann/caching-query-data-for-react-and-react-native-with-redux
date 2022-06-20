@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { useGetMessageQuery } from './services';
+import { useGetMessageQuery,useSendMessageMutation } from './services';
 interface responses {
   message: string;
   id: number;
@@ -26,8 +26,24 @@ function App() {
       <ul>
         {messageList}
       </ul>
+      <SendMessageCompoment />
     </div>
   );
+}
+
+function SendMessageCompoment(){
+  const [sendMessage,{data,isError,isLoading,isSuccess}]=useSendMessageMutation();
+  const [message,setMessage]=useState('');
+  return (
+    <div>  
+      {isLoading && <div>Loading...</div>}
+      {isError && <div>Error!</div>}
+      {isSuccess && <div>Message has been sent!</div>}
+      <input type="text" value={message} onChange={(e)=>setMessage(e.target.value)}/>
+      <button onClick={()=>sendMessage(message)}>Send Message</button>
+    </div>
+  )
+
 }
 
 export default App;
